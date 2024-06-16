@@ -36,9 +36,9 @@ chroot_distro_check() {
 
   if [ "$(ls $chroot_distro_path/busybox | wc -w)" = "0" ]; then
     busybox --install -s "$chroot_distro_path/busybox/"
+    log green "Busybox installed"
   fi
   export PATH="$chroot_distro_path/busybox:$PATH"
-  log green "Busybox installed"
 
   arch=$(uname -m)
   case "$arch" in
